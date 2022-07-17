@@ -49,5 +49,58 @@
     "lastName": "Harrison",
     "position": "Developer III",
     "department": "Engineering"
+  },
+  //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+  ///The following additions were made by Ryan Anderson 7-16-2022 in order to create edge conditions where recursive references exist. 
+  //-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+  //These four individuals help demonstrate that the API can handle recursive references. 
+  {
+    "employeeId": "akdjfdd-16bd-axvvc-bddbd-allld883", //David references himself as a directReport
+    "firstName": "David",
+    "lastName": "Recursivo",
+    "position": "Developer III",
+    "department": "Engineering",
+    "directReports": [
+      {
+        "employeeId": "akdjfdd-16bd-axvvc-bddbd-allld883" //himself
+      }
+    ]
+  },
+  {
+    "employeeId": "afjdj0-7ohy8-oopk-a1a12-del6tyydj", //Rick References David Recusivo, David Recursivo references himself
+    "firstName": "Rick",
+    "lastName": "Recursivinni",
+    "position": "Developer II",
+    "department": "Engineering",
+    "directReports": [
+      {
+        "employeeId": "akdjfdd-16bd-axvvc-bddbd-allld883" //David Recursivo (who references himself)
+      }
+    ]
+  },
+  {
+    "employeeId": "ww231-asdghhf-oopk-a1a12-hpr8273d", //Hershel hangerson references Hansel Davis, who then references hershel again
+    "firstName": "Hershel",
+    "lastName": "Hangerson",
+    "position": "Developer II",
+    "department": "Engineering",
+    "directReports": [
+      {
+        "employeeId": "wa88u-jdj88-88jjo-nnn5-1192d" //Hansel Davis
+      }
+    ]
+  },
+  {
+    "employeeId": "wa88u-jdj88-88jjo-nnn5-1192d", //Hansel Davis references hershel who then references hansel
+    "firstName": "Hansel",
+    "lastName": "Davis",
+    "position": "Developer II",
+    "department": "Engineering",
+    "directReports": [
+      {
+        "employeeId": "ww231-asdghhf-oopk-a1a12-hpr8273d" //hershel
+      }
+    ]
   }
+  //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 ]
